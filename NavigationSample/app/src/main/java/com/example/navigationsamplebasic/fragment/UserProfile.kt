@@ -21,7 +21,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import com.example.navigationsamplebasic.R
 
 
@@ -38,6 +41,10 @@ class UserProfile : Fragment() {
 
         val name = arguments?.getString("userName") ?: "Ali Connors"
         view.findViewById<TextView>(R.id.profile_user_name).text = name
+        view.findViewById<ImageView>(R.id.imageView7).setOnClickListener {
+            Navigation.findNavController(view).navigate(
+                    R.id.action_user_profile_to_game)
+        }
         return view
     }
 }

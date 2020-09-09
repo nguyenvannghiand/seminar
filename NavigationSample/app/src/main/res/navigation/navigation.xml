@@ -87,6 +87,10 @@
         <argument android:name="userName"
                   android:defaultValue="name"/>
         <deepLink app:uri="www.example.com/user/{userName}" />
+        <action
+            android:id="@+id/action_user_profile_to_game"
+            app:popUpTo="@id/match"
+            app:destination="@id/game" />
     </fragment>
     <fragment
             android:id="@+id/in_game"
@@ -129,5 +133,14 @@
             tools:layout="@layout/fragment_game_over">
         <action android:id="@+id/action_game_over_to_match"
                 app:popUpTo="@id/match"/>
+    </fragment>
+    <fragment
+        android:id="@+id/game"
+        android:name="com.example.navigationsamplebasic.fragment.Game"
+        android:label="Game">
+        <action
+            android:id="@+id/action_game_to_match"
+            app:destination="@id/match"
+            app:popUpTo="@id/title_screen" />
     </fragment>
 </navigation>
